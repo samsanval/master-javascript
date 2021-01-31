@@ -18,3 +18,4 @@ let numeroString = "3";
 console.log(numeroString+7);
 let numeroFromString = Number(numeroString);
 console.log(numeroFromString+7);
+console.log(typeof(numeroFromString));
