@@ -6,7 +6,7 @@ Realización del Master en JavaScript: Aprender JS, jQuery, Angular, NodeJS de V
 
 ```javascript
 let texto = "Estoy aprendiendo";
-console.log('Estoy aprendiendo');
+console.log(texto);
 ```
 
 
