@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicios DOM y Eventos</title>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="js/32-ejercicios.js"></script>
+        <style>
+            .content{
+                width: 250px;
+                height: 250px;
+                float: left;
+                margin: 20px;
+            }
+            .dashed{
+                border: 3px dashed black;
+                height: 250px;
+                padding: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Ejercicios DOM y Eventos</h1>
+        <div class="content">
+            <form id="formulario" action="#" method ="POST" onsubmit="return false;">
+                <p><label for="nombre">Nombre</label> <input name="nombre" type="text" id="nombre"/></p>
+                <p><label for="apellidos">Apellidos</label> <input type="text" name="apellidos" id="apellidos"/></p>
+                <p><label for="edad">Edad</label><input type="number" name="edad" id="edad"/></p>
+                <input type="submit" value="Enviar" id="submit"/>
+            </form>
+        </div>
+        <div class="content dashed">
+            <h3>Información del usuario</h3>
+            <hr/>
+        </div>
+    </body>
+</html>
