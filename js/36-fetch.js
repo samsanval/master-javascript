@@ -17,7 +17,13 @@ function listUsers(usuarios){
         .then(data => data.json())
         .then(secondUser => {
             showUser(secondUser);
-            });;
+            return getInfo();
+            }).then(data => {
+                console.log(data);
+            })
+            .catch((error => {
+                console.log(error);
+            }));;
 
 }
 
@@ -31,4 +37,24 @@ function getSecondUser(){
 function showUser(usuario){
     let div = document.querySelector('#secondUser');
     div.innerHTML = usuario.name+' '+usuario.email;
+}
+
+function getInfo(){
+    let profesor = {
+        nombre: "samuel",
+        apellidos: "sanchez",
+        email: 'samuel@erasmusu.com'
+    };
+    return new Promise((resolve,reject) => {
+        let profesorString= "Hola";
+        setTimeout(()=>{
+            profesorString = JSON.stringify(profesor);
+        }, 3000);
+        if(typeof(profesorString) != 'string' || profesorString.length == 0){
+            return reject();
+        }
+        else{
+            return resolve(profesorString);
+        }
+    })
 }
