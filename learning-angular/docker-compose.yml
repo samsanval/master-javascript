@@ -1,0 +1,13 @@
+version: '3'
+networks:
+  angular:
+services:
+  angular:
+    container_name: angular
+    build: ./angular
+    volumes:
+      - "./angular:/usr/src/app"
+    ports:
+      - '4200:4200'
+    networks:
+      - angular

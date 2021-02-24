@@ -49,7 +49,6 @@ export class Shirt implements ShirtBase{
     public get color(): string {
         return this._color;
     }
-    @stamp('Gucci')
     private _color: string;
     private _modelo: string;
     private _marca: string;
