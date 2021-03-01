@@ -1,5 +1,12 @@
 <h2>{{title}}</h2>
 <ul>
-  <li>Reebook Classic</li>
-  <li>Adidas Yeezy</li>
+  <li *ngFor="let zapatilla of zapatillas">{{zapatilla.nombre}} - {{zapatilla.price}}
+    <span *ngIf="zapatilla.price <= 20" [ngStyle]="{'color': 'green'}">¡En oferta!</span>
+  </li>
+  <li *ngFor="let marca of marcas">{{marca}}</li>
+</ul>
+<p>El color de la mayoria de las zapatillas es:</p>
+<ul [ngSwitch]="color">
+  <li *ngSwitchCase="'yellow'">El color predominante es el <span style="background: yellow">amarillo</span></li>
+  <li *ngSwitchCase="'red'">El color predominante es el rojo</li>
 </ul>
