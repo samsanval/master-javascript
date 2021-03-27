@@ -11,6 +11,7 @@ export class ZapatillasComponent implements  OnInit{
   public zapatillas: Array<Zapatilla>;
   public marcas: Array<String>;
   public color: string;
+  public miMarca: string;
 
 
   constructor() {
@@ -20,6 +21,7 @@ export class ZapatillasComponent implements  OnInit{
     ];
     this.color = 'yellow';
     this.marcas = new Array<String>();
+    this.miMarca = 'Fila';
   }
 
   ngOnInit() {
@@ -35,5 +37,20 @@ export class ZapatillasComponent implements  OnInit{
 
     });
     console.log(this.marcas);
+  }
+  getMarca(){
+    console.log(this.miMarca);
+  }
+  addMarca(){
+    this.marcas.push(this.miMarca);
+  }
+  borrarMarca(index){
+    this.marcas.splice(index, 1);
+  }
+  onBlur(){
+    console.log('Has salido');
+  }
+  showWord(){
+    alert(this.miMarca);
   }
 }
