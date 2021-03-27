@@ -1,0 +1,10 @@
+<h1>Pagina principal</h1>
+<div *ngIf="id; then identi else noId"></div>
+<ng-template #identi>
+  <h3>Estas identificado</h3>
+</ng-template>
+
+<ng-template #noId>
+  <p>NO estás identificado, pulsa el boton</p>
+  <button (click)="setId()">Identificarse</button>
+</ng-template>

@@ -1,0 +1,19 @@
+{{this.fecha | date:'dd/MM/yy'}}
+<hr>
+<input type="text" [(ngModel)]="userId" (keyup.enter)="loadUser()" />
+<div *ngIf="!user">
+  ...Loading
+</div>
+<div *ngIf="user">
+  <img src="{{user.data.avatar}}" width="200px">
+  <h2>{{user.data.first_name+ ' '+user.data.last_name}}</h2>
+</div>
+<hr/>
+<h2>Crear Usuario</h2>
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+  <label for="name">Nombre</label>
+  <input type="text" name="name" #name="ngModel" [(ngModel)]="newUser.name" required>
+  <label for="job">Trabajo</label>
+  <input type="text" name="job" #job="ngModel" [(ngModel)]="newUser.job" required>
+  <input type="submit" value="Enviar" [disabled]="!newUser.form.valid">
+</form>
