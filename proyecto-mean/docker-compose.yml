@@ -1,0 +1,37 @@
+version: '3'
+networks:
+  mean:
+services:
+  angular:
+    container_name: angular
+    build: ./proyecto-angular
+    volumes:
+      - "./proyecto-angular:/usr/src/app"
+    ports:
+      - '4200:4200'
+    networks:
+      - mean
+    links:
+      - express
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo/mongo-volume:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - mean
+  express:
+    container_name: node
+    build: './apiNode'
+    ports:
+      - "3000:3000"
+    networks:
+      - mean
+    links:
+      - mongo
+    volumes:
+      - './apiNode:/usr/src/app'

@@ -1,0 +1,25 @@
+version: '3'
+networks:
+  node:
+    driver: bridge
+services:
+  express:
+    build : .
+    ports:
+      - "3000:3000"
+    networks:
+      - node
+    links:
+      - mongo
+    volumes:
+      - '.:/usr/src/app'
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - node

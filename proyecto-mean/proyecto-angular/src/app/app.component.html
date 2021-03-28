@@ -1,0 +1,15 @@
+<header>
+  <ul>
+      <li><a [routerLink]="['/about-me']" [routerLinkActive]="['actived']">Sobre mi</a></li>
+      <li><a [routerLink]="['/projects']"  [routerLinkActive]="['actived']">Proyectos</a></li>
+      <li id="logo"><a href="#">SSA</a></li>
+      <li><a [routerLink]="['/create-project']" [routerLinkActive]="['actived']">Crear Proyecto</a></li>
+      <li><a [routerLink]="['/contact']" [routerLinkActive]="['actived']">Contacto</a></li>
+  </ul>
+</header>
+<section id="content">
+  <router-outlet></router-outlet>
+</section>
+<footer>
+  Master en JS
+</footer>
